@@ -17,6 +17,7 @@ export function SiteHeader() {
               href={siteConfig.links.github}
               target="_blank"
               rel="noreferrer"
+              passHref
             >
               <div
                 className={buttonVariants({
