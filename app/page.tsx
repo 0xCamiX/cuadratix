@@ -18,7 +18,7 @@ export default function IndexPage() {
           <hr />
           {/* Servicios */}
           <div className="grid gap-10 sm:grid-cols-2">
-            <Link href={"/events"} passHref>
+            <Link href={"/creator"} passHref>
               <div className="group relative h-48 bg-gradient-to-t from-green-300 via-blue-500 to-purple-600">
                 <div className="absolute bottom-0 left-0 p-4">
                   <h1 className="text-md font-bold text-white">
@@ -27,7 +27,7 @@ export default function IndexPage() {
                 </div>
               </div>
             </Link>
-            <Link href={"/admin"} passHref>
+            <Link href={"/dashboard"} passHref>
               <div className="group relative h-48 bg-gradient-to-t from-gray-900 via-purple-900 to-violet-600">
                 <div className="absolute bottom-0 left-0 p-4">
                   <h1 className="text-md font-bold text-white">
