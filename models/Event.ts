@@ -1,6 +1,7 @@
 import mongoose from "mongoose"
 
 export interface IEvent {
+  _id:         string;
   name:        string;
   location:    string;
   description: string;
@@ -10,6 +11,7 @@ export interface IEvent {
 }
 
 export interface Activity {
+  _id:          string;
   name:        string;
   type:        string;
   description: string;
@@ -20,6 +22,7 @@ export interface Activity {
 }
 
 export interface Speaker {
+  _id:          string;
   name:        string;
   description: string;
   photo:       string;
@@ -27,7 +30,7 @@ export interface Speaker {
 }
 
 const speakerSchema = new mongoose.Schema({
-  identification: {
+  _identification: {
     type: String,
     required: true,
   },

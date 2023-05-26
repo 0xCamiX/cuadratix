@@ -1,9 +1,19 @@
-export default function DashboardPage () {
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
+
+export default async function DashboardPage() {
   return (
     <>
-      <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-        <h1 className="text-2xl font-semibold text-gray-700 dark:text-gray-200">Dashboard</h1>
-      </section>
+      <Card className="h-[80vh] w-full">
+        <CardHeader>
+          <h2 className="text-2xl font-bold">Dashboard</h2>
+        </CardHeader>
+        <CardContent>
+          <p className="text-muted-foreground">
+            Seleciona un evento para comenzar, puedes gestionar la creación de
+            actividades y finalización para los eventos que tengas activos.
+          </p>
+        </CardContent>
+      </Card>
     </>
   )
 }
