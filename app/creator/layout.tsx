@@ -1,27 +1,17 @@
 import { Metadata } from "next"
-import Image from "next/image"
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { SidebarNav } from "@/app/creator/components/sidebar-nav"
 
-// export const metadata: Metadata = {
-//   title: "Creator app",
-//   description:
-//     "Advanced Creator for Cuadratix, the best way to create your own events",
-// }
+export const metadata: Metadata = {
+  title: "Creator app",
+  description:
+    "Advanced Creator for Cuadratix, the best way to create your own events",
+}
 
 const sidebarNavItems = [
   {
     title: "Evento",
-    href: "/creator",
+    href: "/creator/event",
   },
   {
     title: "Actividad",

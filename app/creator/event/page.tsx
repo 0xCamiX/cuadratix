@@ -21,21 +21,19 @@ import {
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 
-export default function EventForm() {
+export default function EventsPage() {
   return (
     <Card>
-      <form>
-        <CardHeader>
-          <CardTitle>Crear actividades</CardTitle>
-          <CardDescription>
-            Representación de una actividad para un evento
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
+      <CardHeader>
+        <CardTitle>Crear evento</CardTitle>
+        <CardDescription>Representación de un evento</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form action="">
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Nombre de la actividad</Label>
-              <Input id="name" placeholder="Nombre de la actividad" />
+              <Label htmlFor="name">Nombre del evento</Label>
+              <Input id="name" placeholder="Nombre del evento" />
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="location">Localización</Label>
@@ -43,49 +41,34 @@ export default function EventForm() {
                 <SelectTrigger>
                   <SelectValue placeholder="Seleccionar" />
                   <SelectContent position="popper">
-                    <SelectItem value="aula-maxima">Aula Maxima</SelectItem>
-                    <SelectItem value="auditorio-1">Auditorio 1</SelectItem>
-                    <SelectItem value="auditorio-2">Auditorio 2</SelectItem>
-                    <SelectItem value="auditorio-3">Auditorio 3</SelectItem>
-                  </SelectContent>
-                </SelectTrigger>
-              </Select>
-            </div>
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="location">Tipo de actividad</Label>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Seleccionar" />
-                  <SelectContent position="popper">
-                    <SelectItem value="aula-maxima">Conferencia</SelectItem>
-                    <SelectItem value="auditorio-1">Taller</SelectItem>
+                    <SelectItem value="aula-maxima">UNIAJC SUR</SelectItem>
+                    <SelectItem value="auditorio-1">UNIAJC NORTE</SelectItem>
                   </SelectContent>
                 </SelectTrigger>
               </Select>
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="description">Descripción</Label>
-              <Textarea id="description" placeholder="Actividad PMA Week" />
+              <Textarea
+                id="description"
+                placeholder="Evento Semana Universitaria"
+              />
             </div>
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Inicio de la actividad</Label>
+              <Label htmlFor="name">Inicio del evento</Label>
               <DatePicker />
             </div>
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Fin de la actividad</Label>
+              <Label htmlFor="name">Fin del evento</Label>
               <DatePicker />
             </div>
           </div>
-        </CardContent>
-        <CardFooter className="flex justify-between">
-          <Button variant="default" type="submit">
-            Crear evento
-          </Button>
-          <Button variant="ghost" type="reset">
-            Cancelar
-          </Button>
-        </CardFooter>
-      </form>
+        </form>
+      </CardContent>
+      <CardFooter className="flex justify-between">
+        <Button variant="default">Crear evento</Button>
+        <Button variant="ghost">Cancelar</Button>
+      </CardFooter>
     </Card>
   )
 }
