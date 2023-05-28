@@ -9,7 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { DatePicker } from "@/components/ui/datepicker"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import {
@@ -20,55 +19,74 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
+import { createEvent } from "@/lib/events"
+import { IEvent } from "@/models/mongoose/Event"
+
+async function create(formData: FormData) {
+  "use server"
+
+  const event = JSON.stringify({
+    "name": formData.get("name"),
+    "location": formData.get("location"),
+    "description": formData.get("description"),
+    "date": formData.get("date"),
+    "endDate": formData.get("endDate"),
+  })
+
+  await createEvent(event)
+}
 
 export default function EventsPage() {
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Crear evento</CardTitle>
-        <CardDescription>Representación de un evento</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form action="">
+      <form action={create}>
+        <CardHeader>
+          <CardTitle>Crear evento</CardTitle>
+          <CardDescription>Representación de un evento</CardDescription>
+        </CardHeader>
+        <CardContent>
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Nombre del evento</Label>
-              <Input id="name" placeholder="Nombre del evento" />
+              <Label>Nombre del evento</Label>
+              <Input name="name" placeholder="Nombre del evento" />
             </div>
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="location">Localización</Label>
-              <Select>
+              <Label>Localización</Label>
+              <Select name="location">
                 <SelectTrigger>
                   <SelectValue placeholder="Seleccionar" />
                   <SelectContent position="popper">
-                    <SelectItem value="aula-maxima">UNIAJC SUR</SelectItem>
-                    <SelectItem value="auditorio-1">UNIAJC NORTE</SelectItem>
+                    <SelectItem value="UNIAJC SUR">UNIAJC SUR</SelectItem>
+                    <SelectItem value="UNIJAC NORTE">UNIAJC NORTE</SelectItem>
                   </SelectContent>
                 </SelectTrigger>
               </Select>
             </div>
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="description">Descripción</Label>
+              <Label>Descripción</Label>
               <Textarea
+                name="description"
                 id="description"
                 placeholder="Evento Semana Universitaria"
               />
             </div>
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Inicio del evento</Label>
-              <DatePicker />
+              <Label>Inicio del evento</Label>
+              <Input type="date" name="date"/>
+              {/* <DatePicker name="date" /> */}
             </div>
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Fin del evento</Label>
-              <DatePicker />
+              <Label>Fin del evento</Label>
+              <Input type="date" name="endDate"/>
+              {/* <DatePicker name="endDate"/> */}
             </div>
           </div>
-        </form>
-      </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button variant="default">Crear evento</Button>
-        <Button variant="ghost">Cancelar</Button>
-      </CardFooter>
+        </CardContent>
+        <CardFooter className="flex justify-between">
+          <Button variant="default" type="submit">Crear evento</Button>
+          <Button variant="ghost">Cancelar</Button>
+        </CardFooter>
+      </form>
     </Card>
   )
 }

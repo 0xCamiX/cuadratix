@@ -1,3 +1,5 @@
+import { IEvent } from "@/models/mongoose/Event"
+
 export async function getAllEvents() {
   const response = await fetch('http://localhost:3000/api/events', {
     method: 'GET',
@@ -36,6 +38,20 @@ export async function getOneEventById(id: string) {
   return response.json()
 }
 
-export async function newActivityById(id: string) {
-  return new Response("Hello World!")
+export async function createEvent(body: {}) {
+  console.log("body", body)
+
+  const response = await fetch('http://localhost:3000/api/events', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: body
+  })
+
+  if (!response.ok) {
+    throw new Error('Error while creating event')
+  }
+
+  return response.json()
 }
