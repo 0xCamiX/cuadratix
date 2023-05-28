@@ -24,14 +24,14 @@ import { Textarea } from "@/components/ui/textarea"
 export default function EventForm() {
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Crear actividades</CardTitle>
-        <CardDescription>
-          Representación de una actividad para un evento
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form action="">
+      <form>
+        <CardHeader>
+          <CardTitle>Crear actividades</CardTitle>
+          <CardDescription>
+            Representación de una actividad para un evento
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">Nombre de la actividad</Label>
@@ -76,12 +76,16 @@ export default function EventForm() {
               <DatePicker />
             </div>
           </div>
-        </form>
-      </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button variant="default">Crear evento</Button>
-        <Button variant="ghost">Cancelar</Button>
-      </CardFooter>
+        </CardContent>
+        <CardFooter className="flex justify-between">
+          <Button variant="default" type="submit">
+            Crear evento
+          </Button>
+          <Button variant="ghost" type="reset">
+            Cancelar
+          </Button>
+        </CardFooter>
+      </form>
     </Card>
   )
 }

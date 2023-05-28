@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import Event from "@/models/mongoose/Event"
+import Activity from "@/models/mongoose/Activity"
 
 import db from "@/lib/db"
 
@@ -10,14 +10,14 @@ export async function GET(request: NextRequest) {
     await db.connect()
 
     if (id && id !== "undefined") {
-      const event = await Event.findById(id)
+      const activity = await Activity.findById(id)
 
       await db.disconnect()
 
-      return new NextResponse(JSON.stringify(event))
+      return new NextResponse(JSON.stringify(activity))
     }
 
-    const events = await Event.find({})
+    const events = await Activity.find({})
 
     await db.disconnect()
 
@@ -37,7 +37,7 @@ export async function DELETE(request: NextRequest) {
   try {
     await db.connect()
 
-    const deletedEvent = await Event.findByIdAndDelete(id)
+    const deletedEvent = await Activity.findByIdAndDelete(id)
 
     await db.disconnect()
 
@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
   try {
     await db.connect()
 
-    const newEvent = await Event.create(res)
+    const newEvent = await Activity.create(res)
 
     await db.disconnect()
 
@@ -80,12 +80,12 @@ export async function PUT(request: NextRequest) {
   try {
     await db.connect()
 
-    const updatedEvent = await Event.findByIdAndUpdate(id, res, {
+    const updatedEvent = await Activity.findByIdAndUpdate(id, res, {
       new: true,
     })
 
     if(isNew === "true") {
-      const newEvent = await Event.insertMany([updatedEvent])
+      const newEvent = await Activity.insertMany([updatedEvent])
 
       await db.disconnect()
 

@@ -1,6 +1,14 @@
 import { Metadata } from "next"
 import Image from "next/image"
 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { SidebarNav } from "@/app/creator/components/sidebar-nav"
 
@@ -38,10 +46,11 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
             <div className="w-full lg:w-1/3 lg:p-2">
               <h1 className="text-4xl font-bold tracking-tight">Cuadratix</h1>
               <p className="text-muted-foreground">
-                Creator app es un gestor de creación de eventos, actividades y participantes.
-                Controlar los eventos nunca fue tan fácil. Made with ❤️ by{" Juan Camilo G. "}
+                Creator app es un gestor de creación de eventos, actividades y
+                participantes. Controlar los eventos nunca fue tan fácil. Made
+                with ❤️ by{" Juan Camilo G. "}
               </p>
-              <Separator className="my-6"/>
+              <Separator className="my-6" />
               <div className="flex flex-col">
                 <aside className="lg:w-full">
                   <SidebarNav items={sidebarNavItems} />
