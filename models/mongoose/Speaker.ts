@@ -10,6 +10,10 @@ export interface ISpeaker {
 }
 
 const speakerSchema = new mongoose.Schema({
+  identification: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,
@@ -26,6 +30,11 @@ const speakerSchema = new mongoose.Schema({
   photo: {
     type: String,
     default: "",
+  },
+  event: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Event",
+    required: true,
   },
   activity: {
     type: mongoose.Schema.Types.ObjectId,
