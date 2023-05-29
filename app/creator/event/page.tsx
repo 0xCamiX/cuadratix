@@ -77,12 +77,10 @@ export default async function EventsPage() {
             <div className="flex flex-col space-y-1.5">
               <Label>Inicio del evento</Label>
               <Input type="date" name="date"/>
-              {/* <DatePicker name="date" /> */}
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label>Fin del evento</Label>
               <Input type="date" name="endDate"/>
-              {/* <DatePicker name="endDate"/> */}
             </div>
           </div>
         </CardContent>
