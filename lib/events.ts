@@ -38,9 +38,7 @@ export async function getOneEventById(id: string) {
   return response.json()
 }
 
-export async function createEvent(body: {}) {
-  console.log("body", body)
-
+export async function createEvent(body: any) {
   const response = await fetch('http://localhost:3000/api/events', {
     method: 'POST',
     headers: {

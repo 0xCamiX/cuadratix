@@ -20,7 +20,6 @@ import {
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { createEvent } from "@/lib/events"
-import { IEvent } from "@/models/mongoose/Event"
 
 async function create(formData: FormData) {
   "use server"
@@ -33,13 +32,18 @@ async function create(formData: FormData) {
     "endDate": formData.get("endDate"),
   })
 
-  await createEvent(event)
+  try {
+    await createEvent(event)
+
+  } catch (error) {
+    console.error(error)
+  }
 }
 
-export default function EventsPage() {
+export default async function EventsPage() {
   return (
     <Card>
-      <form action={create}>
+      <form action={create} >
         <CardHeader>
           <CardTitle>Crear evento</CardTitle>
           <CardDescription>Representación de un evento</CardDescription>
