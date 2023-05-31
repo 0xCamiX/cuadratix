@@ -5,9 +5,19 @@ import db from "@/lib/db"
 
 export async function GET(request: NextRequest) {
   const id = request.nextUrl.searchParams.get("id")
+  const event = request.nextUrl.searchParams.get("event")
 
   try {
     await db.connect()
+
+    if (event && event !== "undefined") {
+      const activity = await Activity.find({ event })
+
+      await db.disconnect()
+
+      return new NextResponse(JSON.stringify(activity))
+
+    }
 
     if (id && id !== "undefined") {
       const activity = await Activity.findById(id)

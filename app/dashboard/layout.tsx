@@ -2,7 +2,7 @@ import * as React from "react"
 import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { IEvent } from "@/models/Event"
+import { IEvent } from "@/models/mongoose/Event"
 
 import { getAllEvents } from "@/lib/events"
 import { Badge } from "@/components/ui/badge"
