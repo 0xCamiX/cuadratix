@@ -5,9 +5,19 @@ import db from "@/lib/db"
 
 export async function GET(request: NextRequest) {
   const id = request.nextUrl.searchParams.get("id")
+  const activity = request.nextUrl.searchParams.get("activity")
 
   try {
     await db.connect()
+
+    if (activity && activity !== "undefined") {
+      const speakers = await Speaker.find({ activity })
+
+      await db.disconnect()
+
+      return new NextResponse(JSON.stringify(speakers))
+
+    }
 
     if (id && id !== "undefined") {
       const speaker = await Speaker.findById(id)

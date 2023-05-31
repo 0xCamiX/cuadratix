@@ -1,8 +1,12 @@
+import { format } from "date-fns"
+
 import { IActivity } from "@/models/mongoose/Activity"
 import { IEvent } from "@/models/mongoose/Event"
+import { ISpeaker } from "@/models/mongoose/Speaker"
 
 import { getAllActivitiesByEvent } from "@/lib/activity"
 import { getOneEventById } from "@/lib/events"
+import { getAllSpeakersByActivity } from "@/lib/speaker"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 
 export default async function EventPage({
@@ -12,6 +16,7 @@ export default async function EventPage({
 }) {
   const data: IEvent = await getOneEventById(params.id)
   const activities: IActivity[] = await getAllActivitiesByEvent(params.id)
+  const speakers: ISpeaker[] = await getAllSpeakersByActivity(params.id)
 
   return (
     <Card className="h-[80vh] w-full">
@@ -25,13 +30,23 @@ export default async function EventPage({
         <h3 className="text-xl tracking-tighter">Actividades</h3>
         {/* show activities */}
 
-        <div className="my-4 grid gap-4 sm:grid-cols-2">
+        <div className="my-4 grid gap-4 sm:grid-cols-2 text-justify">
           {activities.map((activity) => (
             <div className="group relative h-20">
               <li key={activity?._id}>{activity?.name}</li>
               <p className="text-muted-foreground">
                 {`${activity?.description} Fecha Inicio: ${activity?.date} Lugar: ${activity?.location}`}
               </p>
+              {speakers.map((speaker) => (
+                  <div key={speaker?._id}>
+                    <p className="text-md">
+                      {`Nombre: ${speaker?.name}`}
+                    </p>
+                    <span className="text-muted-foreground">
+                      {speaker?.description}
+                    </span>
+                  </div>
+                ))}
             </div>
           ))}
         </div>
