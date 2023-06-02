@@ -16,8 +16,8 @@ Plataforma de gestión de eventos.
 
 ## Licenses
 
-- [MIT](https://opensource.org/licenses/MIT)
-
+- [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+-
 ## Authors
 
 - [Juan Camilo Gallego Riveros](https://github.com/CamiloRX777)
