@@ -7,7 +7,7 @@ export async function getAllActivities() {
       "Content-Type": "application/json",
     },
     next: {
-      revalidate: 2,
+      revalidate: 1,
     }
   })
 
@@ -27,7 +27,7 @@ export async function getOneActivityById(id: string) {
         "Content-Type": "application/json",
       },
       next: {
-        revalidate: 2,
+        revalidate: 1,
       }
     }
   )
@@ -48,7 +48,7 @@ export async function getAllActivitiesByEvent(id: string) {
         "Content-Type": "application/json",
       },
       next: {
-        revalidate: 2,
+        revalidate: 1,
       }
     }
   )

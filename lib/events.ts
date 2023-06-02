@@ -7,7 +7,7 @@ export async function getAllEvents() {
       'Content-Type': 'application/json'
     },
     next: {
-      revalidate: 2
+      revalidate: 1
     }
   })
 
@@ -25,7 +25,7 @@ export async function getOneEventById(id: string) {
       'Content-Type': 'application/json'
     },
     next: {
-      revalidate: 2
+      revalidate: 1
     }
   })
 

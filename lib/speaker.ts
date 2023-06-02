@@ -7,7 +7,7 @@ export async function getAllSpeakers() {
       "Content-Type": "application/json",
     },
     next: {
-      revalidate: 2,
+      revalidate: 1,
     }
   })
 
@@ -27,7 +27,7 @@ export async function getOneSpeakerById(id: string) {
         "Content-Type": "application/json",
       },
       next: {
-        revalidate: 2,
+        revalidate: 1,
       }
     }
   )
@@ -66,7 +66,7 @@ export async function getAllSpeakersByActivity(id: string) {
         "Content-Type": "application/json",
       },
       next: {
-        revalidate: 2,
+        revalidate: 1,
       }
     }
   )
