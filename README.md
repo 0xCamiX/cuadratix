@@ -1,23 +1,23 @@
-# next-template
+# Cuadratix
 
-A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
+Plataforma de gestión de eventos.
 
-## Usage
+## Instalación
 
-```bash
-npx create-next-app -e https://github.com/shadcn/next-template
-```
+1. Clonar el repositorio
+2. Instalar las dependencias con `npm install`
+3. Crear un archivo `.env` en la raíz del proyecto con las variables de entorno necesarias (ver `.env.example`)
+4. Ejecutar `npm next dev` para iniciar el servidor de desarrollo.
 
-## Features
+## Requerimientos
 
-- Radix UI Primitives
-- Tailwind CSS
-- Fonts with `next/font`
-- Icons from [Lucide](https://lucide.dev)
-- Dark mode with `next-themes`
-- Automatic import sorting with `@ianvs/prettier-plugin-sort-imports`
-- Tailwind CSS class sorting, merging and linting.
+- Node.js v20.2.0 o superior
+- NextJS v13.4.3 o superior
 
-## License
+## Licenses
 
-Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
+- [MIT](https://opensource.org/licenses/MIT)
+
+## Authors
+
+- [Juan Camilo Gallego Riveros](https://github.com/CamiloRX777)
