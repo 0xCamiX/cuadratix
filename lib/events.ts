@@ -8,8 +8,7 @@ export async function getAllEvents() {
     },
     next: {
       revalidate: 2
-    },
-    cache: 'no-store'
+    }
   })
 
   if (!response.ok) {
@@ -27,8 +26,7 @@ export async function getOneEventById(id: string) {
     },
     next: {
       revalidate: 2
-    },
-    cache: 'no-store'
+    }
   })
 
   if (!response.ok) {

@@ -8,8 +8,7 @@ export async function getAllSpeakers() {
     },
     next: {
       revalidate: 2,
-    },
-    cache: "no-store",
+    }
   })
 
   if (!response.ok) {
@@ -29,8 +28,7 @@ export async function getOneSpeakerById(id: string) {
       },
       next: {
         revalidate: 2,
-      },
-      cache: "no-store",
+      }
     }
   )
 
@@ -69,8 +67,7 @@ export async function getAllSpeakersByActivity(id: string) {
       },
       next: {
         revalidate: 2,
-      },
-      cache: "no-store",
+      }
     }
   )
 

@@ -8,8 +8,7 @@ export async function getAllActivities() {
     },
     next: {
       revalidate: 2,
-    },
-    cache: "no-store",
+    }
   })
 
   if (!response.ok) {
@@ -29,8 +28,7 @@ export async function getOneActivityById(id: string) {
       },
       next: {
         revalidate: 2,
-      },
-      cache: "no-store",
+      }
     }
   )
 
@@ -51,8 +49,7 @@ export async function getAllActivitiesByEvent(id: string) {
       },
       next: {
         revalidate: 2,
-      },
-      cache: "no-store",
+      }
     }
   )
 
